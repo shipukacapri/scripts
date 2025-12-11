@@ -5,21 +5,14 @@
 # =================================================================
 #
 # Stop the script immediately if any command fails
-set -e
+
 
 # =======================
 #   SETUP & PRE-CHECKS
 # =======================
 
 # Load environment variables from .env file
-if [ -f .env ]; then
-  set -o allexport
-  source .env
-  set +o allexport
-else
-  echo "Error: .env file not found! Create one with your secrets."
-  exit 1
-fi
+
 
 # Check for required secrets
 
