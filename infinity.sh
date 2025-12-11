@@ -68,11 +68,11 @@ fi
 #   4. CLONING ADDITIONAL REPOSITORIES
 # =======================
 echo "Cloning additional repositories..."
-git clone https://github.com/LineageOS/android_device_motorola_capri.git -b lineage-23.0 device/motorola/capri --depth=1
-git clone https://github.com/LineageOS/android_device_motorola_sm6225-common.git -b lineage-23.0 device/motorola/sm6225-common --depth=1
-git clone https://github.com/LineageOS/android_kernel_motorola_sm6225.git -b lineage-23.0 kernel/motorola/sm6225 --depth=1
-git clone https://github.com/TheMuppets/proprietary_vendor_motorola_capri.git -b lineage-23.0 vendor/motorola/capri --depth=1
-git clone https://github.com/TheMuppets/proprietary_vendor_motorola_sm6225-common.git -b lineage-23.0 vendor/motorola/sm6225-common --depth=1
+git clone https://github.com/shipukacapri/android_device_motorola_capri.git -b lineage-23.0 device/motorola/capri --depth=1
+git clone https://github.com/shipukacapri/android_device_motorola_sm6225-common.git -b lineage-23.0 device/motorola/sm6225-common --depth=1
+git clone https://github.com/shipukacapri/android_kernel_motorola_sm6225.git -b lineage-23.0 kernel/motorola/sm6225 --depth=1
+git clone https://github.com/shipukacapri/proprietary_vendor_motorola_capri.git -b lineage-23.0 vendor/motorola/capri --depth=1
+git clone https://github.com/shipukacapri/proprietary_vendor_motorola_sm6225-common.git -b lineage-23.0 vendor/motorola/sm6225-common --depth=1
 
 # =======================
 #   6. BUILD THE ROM
