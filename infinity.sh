@@ -28,9 +28,6 @@
 
 
 # === Exports ===
-BUILD_START_TIME=$(date +%s)
-export BUILD_USERNAME=Shipu07
-export BUILD_HOSTNAME=crave
 
 
 # =======================
@@ -93,14 +90,9 @@ m bacon
 
 
 # === Stop Build Timer and Calculate Duration ===
-BUILD_END_TIME=$(date +%s)
-DURATION=$((BUILD_END_TIME - BUILD_START_TIME))
-DURATION_FORMATTED=$(printf '%dh:%dm:%ds\n' $(($DURATION/3600)) $(($DURATION%3600/60)) $(($DURATION%60)))
 
-OUTPUT_DIR="out/target/product/capri"
-ZIP_FILE=$(find "$OUTPUT_DIR" -type f -iname "Project*.zip" -printf "%T@ %p\n" | sort -n | tail -n1 | cut -d' ' -f2-)
 
 
 
 # Unset the trap explicitly for a clean successful exit
-trap - EXIT
+
