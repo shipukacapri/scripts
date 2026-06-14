@@ -6,13 +6,13 @@ set -e
 rm -rf .repo/local_manifests
 
 # Init Infinity Source
-repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest -b 16 -g default,-mips,-darwin,-notdefault
+repo init -u https://github.com/AxionAOSP/android.git -b lineage-23.2 --git-lfs
 
 # Add local manifest
 mkdir -p .repo/local_manifests
 
 # Download manifest
-git clone https://github.com/shipukacapri/rhodei_local_manifest --depth 1 -b inf-qp2 .repo/local_manifests
+git clone https://github.com/shipukacapri/rhodei_local_manifest --depth 1 -b axion .repo/local_manifests
 
 # Clean previous sources
 rm -rf device/motorola/rhodei
@@ -39,6 +39,5 @@ export SKIP_ABI_CHECKS=true
 
 # Build
 source build/envsetup.sh
-lunch infinity_rhodei-userdebug
-
-m bacon
+axion rhodei userdebug gms
+ax -b
