@@ -39,5 +39,5 @@ export SKIP_ABI_CHECKS=true
 
 # Build
 source build/envsetup.sh
-axion rhodei userdebug gms
+axion rhodei userdebug core
 ax -b
