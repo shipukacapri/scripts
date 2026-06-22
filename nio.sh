@@ -6,13 +6,13 @@ set -e
 rm -rf .repo/local_manifests
 
 # Init Infinity Source
-repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest -b 16 -g default,-mips,-darwin,-notdefault
+repo init -u https://github.com/VoltageOS/manifest.git -b 16.2 --git-lfs
 
 # Add local manifest
 mkdir -p .repo/local_manifests
 
 # Download manifest
-git clone https://github.com/shipukacapri/nio_local_manifest --depth 1 -b inf-qp2 .repo/local_manifests
+git clone https://github.com/shipukacapri/nio_local_manifest --depth 1 -b voltage .repo/local_manifests
 
 # Clean previous sources
 rm -rf device/motorola/nio
@@ -24,6 +24,15 @@ rm -rf hardware/motorola
 
 # Sync everything from manifest
 /opt/crave/resync.sh
+
+# REGENERATE VOLTAGE OS KEYS
+# ==========================================
+# The ( ) runs these commands in a subshell, leaving your main script's directory unchanged.
+(
+    cd vendor/voltage-priv/keys
+    ./keys.sh
+)
+# ==========================================
 
 # Clean previous builds
 rm -rf out/target/product/nio
@@ -38,6 +47,5 @@ export SKIP_ABI_CHECKS=true
 
 # Build
 source build/envsetup.sh
-lunch infinity_nio-userdebug
-
+lunch voltage_nio-bp4a-userdebug
 m bacon
