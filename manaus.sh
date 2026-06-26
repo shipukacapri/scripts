@@ -5,15 +5,6 @@ set -e
 # Clean old manifest
 rm -rf .repo/local_manifests
 
-# Init Lineage Source
-repo init -u https://github.com/LineageOS/android.git -b lineage-23.2 --git-lfs
-
-# local manifest
-git clone https://github.com/shipukacapri/manaus_local_manifests -b lineage .repo/local_manifests --depth=1
-
-# Sync everything from manifest
-/opt/crave/resync.sh
-
 # Clean previous sources
 rm -rf device/motorola/manaus
 rm -rf device/motorola/manaus-kernel
@@ -21,6 +12,15 @@ rm -rf vendor/motorola/manaus
 rm -rf kernel/motorola/manaus
 rm -rf hardware/motorola
 rm -rf device/mediatek/sepolicy_vndr
+
+# Init Lineage Source
+repo init -u https://github.com/LineageOS/android.git -b lineage-23.2 --git-lfs
+
+# local manifest
+# git clone https://github.com/shipukacapri/manaus_local_manifests -b lineage .repo/local_manifests --depth=1
+
+# Sync everything from manifest
+/opt/crave/resync.sh
 
 # Clone Device Trees
 git clone https://github.com/shipukacapri/device_motorola_manaus.git -b lineage device/motorola/manaus --depth=1
