@@ -48,6 +48,10 @@ export BUILD_HOSTNAME=Crave
 export TZ="Asia/Kolkata"
 export SKIP_ABI_CHECKS=true
 
+# Generate VoltageOS private keys
+
+(cd vendor/voltage-priv/keys && ./keys.sh)
+
 # Build
 source build/envsetup.sh
 
