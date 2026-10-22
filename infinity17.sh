@@ -12,7 +12,7 @@ echo "Repo init success"
 echo "=================="
 
 
-git clone https://github.com/shipukacapri/capri_local_manifest --depth 1 -b infinity-17 .repo/local_manifests 
+git clone https://github.com/shipukacapri/hotdogb_local_manifest --depth 1 -b infinity-17 .repo/local_manifests 
 
 
 echo "===== Sync the repositories ========"
