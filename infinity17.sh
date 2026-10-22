@@ -6,7 +6,7 @@ rm -rf .repo/local_manifests
 echo "======= Remove Done ======"
 
 # Rom source repo
-        repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest -b 17 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest -b 17 -g default,-mips,-darwin,-notdefault
         
 echo "Repo init success"
 echo "=================="
@@ -24,3 +24,19 @@ repo sync -c -j$(nproc --all) --force-sync --force-remove-dirty --no-clone-bundl
 /opt/crave/resync.sh
 
 echo "======== Syncing Done =========="
+
+echo "=================="
+echo "Sync Keys"
+git clone https://github.com/shipukacapri/inf_keys --depth 1 -b main vendor/infinity-priv/keys
+echo "====== Syncing Done ============"
+
+
+echo "=================="
+echo "Building Rom"
+echo "=================="
+
+# Build rom
+source build/envsetup.sh
+lunch infinity_hotdogb-userdebug
+m bacon
+echo "===build complete==="
