@@ -24,13 +24,3 @@ repo sync -c -j$(nproc --all) --force-sync --force-remove-dirty --no-clone-bundl
 /opt/crave/resync.sh
 
 echo "======== Syncing Done =========="
-
-echo "=================="
-echo "Building Rom"
-echo "=================="
-
-# Build rom
-source build/envsetup.sh
-lunch infinity_capri-userdebug
-m bacon
-echo "===build complete==="
