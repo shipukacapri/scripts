@@ -12,7 +12,7 @@ echo "Repo init success"
 echo "=================="
 
 
-git clone https://github.com/shipukacapri/hotdogb_local_manifest --depth 1 -b infinity-17 .repo/local_manifests 
+git clone https://github.com/shipukacapri/fogos_local_manifest --depth 1 -b infinity-17 .repo/local_manifests 
 
 
 echo "===== Sync the repositories ========"
@@ -32,11 +32,17 @@ echo "====== Syncing Done ============"
 
 
 echo "=================="
+echo "clone yaap commit fro A17 on crave"
+wget https://github.com/yaap-17-stone/build_soong/raw/f9c27b0b9298f6eeee9a850346e0a646c3eaeb87/cmd/soong_build/main.go && mv main.go build/soong/cmd/soong_build/
+echo "====== Syncing Done ============"
+
+
+echo "=================="
 echo "Building Rom"
 echo "=================="
 
 # Build rom
 source build/envsetup.sh
-lunch infinity_hotdogb-userdebug
+lunch infinity_fogos-userdebug
 m bacon
 echo "===build complete==="
